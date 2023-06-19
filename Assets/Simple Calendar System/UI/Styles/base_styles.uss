@@ -1,0 +1,31 @@
+#container {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.accept-button {
+}
+
+.reject-button {
+}
+
+.arrow {
+    width: auto;
+    height: auto;
+    -unity-font: url('project://database/Assets/Simple%20Calendar%20System/UI/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0d2f8dcdd2170444ab64fd53bef7e4e5&type=3#NotInter-Regular');
+    -unity-font-style: bold;
+    font-size: 36px;
+    align-items: auto;
+    justify-content: center;
+    -unity-text-align: upper-center;
+    max-width: 75px;
+    max-height: 75px;
+    min-width: 50px;
+    min-height: 50px;
+}

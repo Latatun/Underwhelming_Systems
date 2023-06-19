@@ -1,0 +1,79 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/base_styles.uss?fileID=7433441132597879392&amp;guid=44f48d334161e724b88354d56daaae0e&amp;type=3#base_styles" />
+    <Style src="project://database/Assets/UI/Calendar/calendar.uss?fileID=7433441132597879392&amp;guid=77609888497720443986aebe5b6575f4&amp;type=3#calendar" />
+    <ui:VisualElement name="container">
+        <ui:VisualElement name="calendar-container" style="align-items: center; justify-content: flex-start;">
+            <ui:VisualElement name="month-header" style="width: 100%; height: 20%; flex-direction: row;">
+                <ui:Label text="&lt;" display-tooltip-when-elided="true" name="prev-month" class="arrow" />
+                <ui:Label text="January" display-tooltip-when-elided="true" name="month-label" class="calendar-title" />
+                <ui:Label text="1995" display-tooltip-when-elided="true" name="year-label" class="calendar-title" />
+                <ui:Label text="&gt;" display-tooltip-when-elided="true" name="next-month" class="arrow" />
+            </ui:VisualElement>
+            <ui:VisualElement name="day-week-header" style="justify-content: space-around;">
+                <ui:Label text="Sun" display-tooltip-when-elided="true" name="Sunday" class="day-space" />
+                <ui:Label text="Mon" display-tooltip-when-elided="true" name="Monday" class="day-space" />
+                <ui:Label text="Tue" display-tooltip-when-elided="true" name="Tuesday" class="day-space" />
+                <ui:Label text="Wed" display-tooltip-when-elided="true" name="Wednesday" class="day-space" />
+                <ui:Label text="Thu" display-tooltip-when-elided="true" name="Thursday" class="day-space" />
+                <ui:Label text="Fri" display-tooltip-when-elided="true" name="Friday" class="day-space" />
+                <ui:Label text="Sat" display-tooltip-when-elided="true" name="Saturday" class="day-space" />
+            </ui:VisualElement>
+            <ui:VisualElement name="calendar-body" style="height: 100%; width: 100%; flex-direction: column; align-items: flex-start; justify-content: space-around;">
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+                <ui:VisualElement name="row" class="row">
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                    <ui:Label display-tooltip-when-elided="true" name="day" class="day-space" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
