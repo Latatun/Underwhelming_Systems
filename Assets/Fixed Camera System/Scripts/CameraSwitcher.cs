@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class CameraSwitcher : MonoBehaviour
+namespace FixedCamera
 {
-    [SerializeField] BoxCollider coll;
-    [SerializeField] CameraTuple camTuple;
-    [SerializeField] RuntimeCameras runtimeCameras;
-
-    private void Awake()
+    [RequireComponent(typeof(BoxCollider))]
+    public class CameraSwitcher : MonoBehaviour
     {
-        coll.isTrigger = true;
-        SetCamProperties();
-        runtimeCameras.AddRuntimeCamera(camTuple);
-    }
+        [SerializeField] BoxCollider coll;
+        [SerializeField] CameraTuple camTuple;
+        [SerializeField] RuntimeCameras runtimeCameras;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(TagUtils.PLAYER_TAG))
-            runtimeCameras.SwitchCamera(camTuple);
-    }
+        private void Awake()
+        {
+            coll.isTrigger = true;
+            SetCamProperties();
+            runtimeCameras.AddRuntimeCamera(camTuple);
+        }
 
-    private void SetCamProperties()
-    {
-        var character = GameObject.FindGameObjectWithTag(TagUtils.PLAYER_TAG);
-        camTuple.relatedCam.LookAt = character.transform;
-        camTuple.relatedCam.enabled = false;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(TagUtils.PLAYER_TAG))
+                runtimeCameras.SwitchCamera(camTuple);
+        }
+
+        private void SetCamProperties()
+        {
+            var character = GameObject.FindGameObjectWithTag(TagUtils.PLAYER_TAG);
+            camTuple.relatedCam.LookAt = character.transform;
+            camTuple.relatedCam.enabled = false;
+        }
     }
 }

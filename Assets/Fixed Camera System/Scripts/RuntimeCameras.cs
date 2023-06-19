@@ -3,48 +3,51 @@ using UnityEngine;
 using System;
 using Cinemachine;
 
-[CreateAssetMenu(fileName = "RuntimeCameras", menuName = "UWS/Fixed Camera System/Runtime Cameras", order = 0)]
-public class RuntimeCameras : ScriptableObject
+namespace FixedCamera
 {
-    public CameraTuple ActiveCamera => sceneCameras.Find(t => t.relatedCam.enabled);
-    public Action OnCameraChange;
-    [SerializeField] List<CameraTuple> sceneCameras;
-
-    public void AddRuntimeCamera(CameraTuple tuple)
+    [CreateAssetMenu(fileName = "RuntimeCameras", menuName = "UWS/Fixed Camera System/Runtime Cameras", order = 0)]
+    public class RuntimeCameras : ScriptableObject
     {
-        if (sceneCameras.Contains(tuple)) return;
+        public CameraTuple ActiveCamera => sceneCameras.Find(t => t.relatedCam.enabled);
+        public Action OnCameraChange;
+        [SerializeField] List<CameraTuple> sceneCameras;
 
-        if (sceneCameras.Count == 0)
+        public void AddRuntimeCamera(CameraTuple tuple)
         {
-            tuple.relatedCam.enabled = true;
+            if (sceneCameras.Contains(tuple)) return;
+
+            if (sceneCameras.Count == 0)
+            {
+                tuple.relatedCam.enabled = true;
+                sceneCameras.Add(tuple);
+                return;
+            }
+
+            if (IsHigherPriority(tuple.relatedCam))
+            {
+                tuple.relatedCam.enabled = true;
+                ActiveCamera.relatedCam.enabled = false;
+            }
             sceneCameras.Add(tuple);
-            return;
         }
 
-        if (IsHigherPriority(tuple.relatedCam))
+        public void SwitchCamera(CameraTuple switchTuple)
         {
-            tuple.relatedCam.enabled = true;
+            if (ActiveCamera.Equals(switchTuple) || !sceneCameras.Contains(switchTuple)) return;
+
             ActiveCamera.relatedCam.enabled = false;
+            switchTuple.relatedCam.enabled = true;
+            OnCameraChange?.Invoke();
         }
-        sceneCameras.Add(tuple);
-    }
 
-    public void SwitchCamera(CameraTuple switchTuple)
-    {
-        if (ActiveCamera.Equals(switchTuple) || !sceneCameras.Contains(switchTuple)) return;
+        private void OnEnable()
+        {
+            sceneCameras = new List<CameraTuple>();
+        }
 
-        ActiveCamera.relatedCam.enabled = false;
-        switchTuple.relatedCam.enabled = true;
-        OnCameraChange?.Invoke();
-    }
-
-    private void OnEnable()
-    {
-        sceneCameras = new List<CameraTuple>();
-    }
-
-    private bool IsHigherPriority(CinemachineVirtualCamera cam)
-    {
-        return cam.Priority > ActiveCamera.relatedCam.Priority;
+        private bool IsHigherPriority(CinemachineVirtualCamera cam)
+        {
+            return cam.Priority > ActiveCamera.relatedCam.Priority;
+        }
     }
 }
